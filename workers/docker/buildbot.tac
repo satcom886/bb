@@ -26,7 +26,7 @@ blacklist = os.environ.get("WORKER_ENVIRONMENT_BLACKLIST", "WORKERPASS").split()
 for name in list(os.environ.keys()):
     for toremove in blacklist:
         if fnmatch.fnmatch(name, toremove):
-            os.unsetenv(name)
+            del os.environ[name]
 
 keepalive = 600
 umask = None
